@@ -10,6 +10,7 @@ sudo ufw start
 sudo ufw enable
 sudo ufw status
 sudo ufw status verbose
+sudo ufw reload
 
 sudo ufw stop
 sudo ufw start
