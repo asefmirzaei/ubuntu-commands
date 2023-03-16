@@ -1,4 +1,5 @@
 sudo apt update -y
+sudo apt upgrade -y
 sudo apt install -y ufw
 go to  /etc/default/ufw   set IPV6=yes
 sudo ufw default deny incoming
