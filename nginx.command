@@ -1,4 +1,5 @@
 sudo apt update -y
+sudo apt upgrade -y
 sudo apt install -y nginx
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
