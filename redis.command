@@ -1,5 +1,6 @@
 # ================================================== install ==================================================
 sudo apt update -y
+sudo apt upgrade -y
 sudo apt -y install redis-server
 go to    /etc/redis/redis.conf set   supervised systemd
 sudo systemctl enable redis-server.service
