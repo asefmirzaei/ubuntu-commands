@@ -1,0 +1,74 @@
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install -y ufw
+go to  /etc/default/ufw   set IPV6=yes
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw start
+sudo ufw enable
+sudo ufw status
+sudo ufw status verbose
+sudo ufw reload
+
+sudo ufw stop
+sudo ufw start
+sudo ufw restart
+sudo ufw reload
+sudo ufw disable
+sudo ufw enable
+sudo ufw status
+
+
+
+
+
+
+
+------------------------------------------------------
+https://github.com/asefmirzaei/ubuntu-commands/blob/main/ufw.command
+------------------------------------------------------
+
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install -y ufw
+go to  /etc/default/ufw   set IPV6=yes
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw allow 51853/udp
+sudo ufw allow 51854/tcp
+sudo ufw start
+sudo ufw enable
+sudo ufw status
+sudo ufw status verbose
+sudo ufw reload
+
+
+------------------------------------------------------
+https://github.com/WeeJeWel/wg-easy
+------------------------------------------------------
+
+curl -sSL https://get.docker.com | sh
+sudo usermod -aG docker $(whoami)
+
+
+docker run -d \
+--name=wg-easy \
+-e WG_HOST=103.75.197.215 \
+-e PASSWORD=Safar@$98 \
+-e WG_DEFAULT_DNS="8.8.8.8, 8.8.4.4" \
+-v ~/.wg-easy:/etc/wireguard \
+-p 51853:51820/udp \
+-p 51854:51821/tcp \
+--cap-add=NET_ADMIN \
+--cap-add=SYS_MODULE \
+--sysctl="net.ipv4.conf.all.src_valid_mark=1" \
+--sysctl="net.ipv4.ip_forward=1" \
+--restart unless-stopped \
+weejewel/wg-easy
+
