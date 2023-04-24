@@ -8,7 +8,7 @@ sudo ufw allow ssh
 sudo ufw allow http
 sudo ufw allow https
 sudo ufw start
-sudo ufw enable
+sudo ufw enable -y
 sudo ufw status
 sudo ufw status verbose
 sudo ufw reload
@@ -18,5 +18,5 @@ sudo ufw start
 sudo ufw restart
 sudo ufw reload
 sudo ufw disable
-sudo ufw enable
+sudo ufw enable -y
 sudo ufw status
