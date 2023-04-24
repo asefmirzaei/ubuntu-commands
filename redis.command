@@ -10,10 +10,8 @@ find bind 127.0.0.1 in /etc/redis.conf and add your ip at end of it.
 find requirepass in /etc/redis.conf and uncomment  requirepass  and set pass with it.
 redis-cli ping
 
-sudo firewall-cmd --permanent --new-zone=redis
-sudo firewall-cmd --permanent --zone=redis --add-port=6379/tcp
-sudo firewall-cmd --permanent --zone=redis --add-source=client_server_private_IP
-sudo firewall-cmd --reload
+sudo ufw allow 6379/tcp
+sudo ufw reload
 
 sudo systemctl restart redis-server.service
 # ================================================== commands =================================================
