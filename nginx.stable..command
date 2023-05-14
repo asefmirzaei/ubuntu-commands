@@ -1,12 +1,11 @@
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y software-properties-common
-sudo add-apt-repository ppa:nginx/stable
+wget -O- https://nginx.org/keys/nginx_signing.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg
+echo deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu `lsb_release -cs` nginx | sudo tee /etc/apt/sources.list.d/nginx-stable.list
+echo deb-src [arch=amd64,arm64 signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/ubuntu `lsb_release -cs` nginx | sudo tee -a /etc/apt/sources.list.d/nginx.list
 sudo apt update -y
 sudo apt install -y nginx
 nginx -v
-
-
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 'Nginx HTTPS'
