@@ -15,7 +15,7 @@ sudo ufw reload
 
 sudo ufw stop
 sudo ufw start
-sudo ufw restart
+sudo ufw reset
 sudo ufw reload
 sudo ufw disable
 sudo ufw enable
