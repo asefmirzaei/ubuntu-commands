@@ -28,5 +28,4 @@ add   brotli on;
 to domain and subdomains config files.
 
 nginx -t
-
-     
+sudo systemctl reload nginx
