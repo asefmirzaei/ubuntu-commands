@@ -1,7 +1,7 @@
 # ================================================== install ==================================================
 sudo apt update -y
 sudo apt upgrade -y
-apt install build-essential tcl make -y
+apt install -y build-essential tcl make net-tools
 curl -O http://download.redis.io/redis-stable.tar.gz
 tar xzvf redis-stable.tar.gz
 cd redis-stable
@@ -15,6 +15,7 @@ edite /etc/redis/redis.conf file and set :
 *************************************************************************************
 supervised systemd
 dir /var/lib/redis
+rename-command CONFIG sys_admin_config_836
 find port 36277 and change port YOUR_PORT .
 find bind 127.0.0.1 in /etc/redis.conf and add your ip at end of it.
 find requirepass in /etc/redis.conf and uncomment  requirepass  and set pass with it.
