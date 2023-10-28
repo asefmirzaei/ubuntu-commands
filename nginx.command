@@ -17,6 +17,25 @@ echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 
 sudo apt update -y
 sudo apt install nginx -y
 
+create /etc/ufw/applications.d/nginx.ini
+place this inside nginx.ini file :
+*************************************************
+[Nginx HTTP]
+title=Web Server 
+description=Enable NGINX HTTP traffic
+ports=80/tcp
+
+[Nginx HTTPS] \
+title=Web Server (HTTPS) \
+description=Enable NGINX HTTPS traffic
+ports=443/tcp
+
+[Nginx Full]
+title=Web Server (HTTP,HTTPS)
+description=Enable NGINX HTTP and HTTPS traffic
+ports=80,443/tcp
+*************************************************
+ufw app update nginx
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 'Nginx HTTPS'
@@ -27,13 +46,15 @@ sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
 nginx -v
+
+
+
 sudo chown -R www-data:www-data /var/www/
 sudo chmod -R 755 /var/www/
 sudo chown -R $USER:$USER /var/www/your_domain
 sudo ln -s /etc/nginx/sites-available/yorsite.com.conf /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
-
 
 sudo systemctl stop nginx
 sudo systemctl start nginx
