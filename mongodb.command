@@ -1,17 +1,16 @@
 # ================================================== install ==================================================
 sudo apt update -y
-sudo apt-get install gnupg
+sudo apt upgrade -y
+sudo apt-get install gnupg curl
 
-sudo curl -fsSL https://pgp.mongodb.com/server-6.0.asc | \
-   sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg \
+curl -fsSL https://pgp.mongodb.com/server-7.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
    --dearmor
 
-Create a /etc/apt/sources.list.d/mongodb-org-6.0.list file
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
 
-echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
-
-sudo apt update -y
-sudo apt install -y mongodb-org
+sudo apt-get update
+sudo apt-get install -y mongodb-org
 
 echo "mongodb-org hold" | sudo dpkg --set-selections
 echo "mongodb-org-database hold" | sudo dpkg --set-selections
