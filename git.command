@@ -4,6 +4,7 @@ sudo apt install -y git
 git --version
 git config --global user.name "Your Name"
 git config --global user.email "you@example.com"
+git config --global credential.helper store
 git config --list
 
 # ================================================== commands =================================================
@@ -12,6 +13,3 @@ git clone YOR_PROJECT_GIT_UTL
 git branch -r | grep -v '\->' | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
 git fetch --all
 git pull --all
-
-# store username and password :
-git config --global credential.helper store
