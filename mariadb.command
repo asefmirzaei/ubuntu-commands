@@ -1,7 +1,6 @@
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y mariadb-server mariadb-client mariadb-backup
-sudo apt install -y software-properties-common
+sudo apt install -y mariadb-server mariadb-client mariadb-backup software-properties-common
 sudo systemctl start mariadb.service
 sudo systemctl enable mariadb.service
 sudo systemctl status mariadb.service
