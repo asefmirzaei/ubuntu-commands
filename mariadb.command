@@ -1,6 +1,11 @@
+########## WithScript ##########
+curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
+
+
+########## With Command ##########
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y mariadb-server mariadb-client mariadb-backup software-properties-common
+sudo apt install -y mariadb-server mariadb-client mariadb-common mariadb-backup libmariadb3 galera-4 software-properties-common
 sudo systemctl start mariadb.service
 sudo systemctl enable mariadb.service
 sudo systemctl status mariadb.service
