@@ -16,4 +16,8 @@ source ~/.zshrc
 . ~/.profile
 command -v nvm
 nvm -v
+nvm ls-remote
+nvm install node
+nvm alias default node
+nvm use node
 # ================================================== commands =================================================
