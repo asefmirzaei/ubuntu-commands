@@ -21,7 +21,6 @@ sudo ufw disable
 sudo ufw enable
 sudo ufw status
 
-
 sudo ufw status numbered
 sudo ufw delete {rule-number-here}
 
