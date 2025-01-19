@@ -20,3 +20,10 @@ sudo ufw reload
 sudo ufw disable
 sudo ufw enable
 sudo ufw status
+
+
+sudo ufw status numbered
+sudo ufw delete {rule-number-here}
+
+sudo ufw deny {port_with_protocol}
+sudo ufw delete deny {port_with_protocol}
